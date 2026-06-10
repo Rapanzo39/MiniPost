@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+
+    <title>All Posts</title>
+    
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="/posts">
+                MiniPost
+            </a>
+
+            <div class="d-flex align-items-center gap-3">
+
+                <form action="/posts" method="GET" class="d-flex">
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        name="search"
+                        placeholder="Search posts..."
+                    >
+
+                    <button class="btn btn-light">
+                        Search
+                    </button>
+                </form>
+
+                <a href="/posts/new" class="btn btn-success">
+                    Create Post
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Toast Message -->
+    <% if(message){ %>
+
+    <div class="toast show shadow border-0 text-bg-success">
+
+        <div
+            id="liveToast"
+            class="toast show text-bg-success"
+            role="alert"
+        >
+
+            <div class="toast-body">
+                <%= message %>
+            </div>
+
+        </div>
+
+    </div>
+
+    <% } %>
+
+    <!-- Content -->
+    <div class="container mt-4" style="max-width: 900px;">
+
+        <h1 class="text-center mb-4">All Posts</h1>
+        <p class="post-count"><%= posts.length %> posts</p>
+
+        <% if(posts.length === 0){ %>
+
+            <div class="alert alert-info text-center">
+                No posts available
+            </div>
+
+        <% } %>
+
+        <% for(let post of posts){ %>
+
+            <div class="card mb-3">
+                <div class="card-num"><%= posts.indexOf(post) + 1 %></div>
+                <div class="card-body">
+
+                    <!-- User Section -->
+                    <div class="d-flex align-items-center mb-3">
+
+                        <% if(post.avatar){ %>
+
+                            <img
+                                src="<%= post.avatar %>"
+                                alt="Avatar"
+                                width="50"
+                                height="50"
+                                class="rounded-circle me-3"
+                            >
+
+                        <% } %>
+
+                        <div>
+
+                            <h4 class="text-primary fw-bold mb-0">
+                                <%= post.username %>
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Post Content -->
+                    <p class="text-secondary fs-6">
+                        <%= post.content %>
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2 flex-wrap">
+
+                        <a
+                            href="/posts/<%= post.id %>"
+                            class="btn btn-primary"
+                        >
+                            View
+                        </a>
+
+                        <a
+                            href="/posts/<%= post.id %>/edit"
+                            class="btn btn-warning"
+                        >
+                            Edit
+                        </a>
+
+                        <form
+                            action="/posts/<%= post.id %>?_method=DELETE"
+                            method="POST"
+                            class="m-0"
+                        >
+
+                            <button
+                                type="submit"
+                                class="btn btn-danger"
+                                onclick="return confirm('Are you sure you want to delete this post?')"
+                            >
+                                Delete
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        <% } %>
+
+        <div class="text-center mt-4 mb-5">
+
+    
+
+        </div>
+
+    </div>
+
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        setTimeout(() => {
+            const toast = document.getElementById("liveToast");
+
+            if (toast) {
+                toast.style.display = "none";
+            }
+        }, 3000);
+    </script>
+
+</body>
+</html>

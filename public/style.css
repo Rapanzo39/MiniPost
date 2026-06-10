@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* ── Base ── */
+body {
+    font-family: 'Inter', sans-serif;
+    background: #eef2ff;
+    color: #1e1b4b;
+    min-height: 100vh;
+}
+
+/* ── Navbar ── */
+.navbar {
+    background: #fff !important;
+    border-bottom: 1px solid #e0e7ff !important;
+    padding: 13px 24px;
+}
+
+.navbar-brand {
+    font-size: 1.30rem;
+    font-weight: 700;
+    color: #4338ca !important;
+    letter-spacing: -0.3px;
+    margin-right: 25px;
+}
+
+/* little indigo dot before the brand name */
+.navbar-brand::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4f46e5;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+/* ── Form Controls ── */
+.form-control {
+    background: #f9fafb !important;
+    border: 1.5px solid #e0e7ff !important;
+    border-radius: 9px !important;
+    padding: 9px 13px;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: #1e1b4b !important;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.form-control:focus {
+    border-color: #4f46e5 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    color: #1e1b4b !important;
+}
+
+.form-control::placeholder {
+    color: #c7d2fe !important;
+}
+
+.form-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6366f1;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+textarea.form-control {
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* ── Buttons ── */
+.btn {
+    border-radius: 10px !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 8px 18px;
+    transition: all 0.18s;
+}
+
+.btn-primary {
+    background: #4f46e5 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    background: #4338ca !important;
+}
+
+.btn-success {
+    background: #4f46e5 !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.btn-success:hover {
+    background: #4338ca !important;
+}
+
+.btn-secondary {
+    background: #fff !important;
+    color: #4f46e5 !important;
+    border: 1.5px solid #c7d2fe !important;
+}
+
+.btn-secondary:hover {
+    background: #eef2ff !important;
+}
+
+.btn-light {
+    background: #fff !important;
+    color: #4f46e5 !important;
+    border: 1.5px solid #c7d2fe !important;
+}
+
+.btn-light:hover {
+    background: #eef2ff !important;
+}
+
+.btn-warning {
+    background: #ede9fe !important;
+    color: #5b21b6 !important;
+    border: 1.5px solid #ddd6fe !important;
+}
+
+.btn-warning:hover {
+    background: #ddd6fe !important;
+}
+
+.btn-danger {
+    background: #fff0f0 !important;
+    color: #dc2626 !important;
+    border: 1.5px solid #fecaca !important;
+}
+
+.btn-danger:hover {
+    background: #fee2e2 !important;
+}
+
+/* ── Cards — split layout with numbered sidebar ── */
+.card {
+    background: #fff !important; 
+    border: 5px solid #e0e7ff !important;  
+    border-radius: 20px !important;
+    margin: 0 auto 12px !important;
+    max-width: 700px;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden;
+    transition: transform 0.18s, border-color 0.2s, box-shadow 0.18s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: #a5b4fc !important;
+    box-shadow: 0 16px 25px rgba(79, 70, 229, 0.08) !important;
+}
+
+/* little numbered sidebar on the left */
+.card-num {
+    background: #eef2ff;
+    width: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 20px;
+    border-right: 1px solid #e0e7ff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #a5b4fc;
+    counter-increment: post-counter;
+}
+
+.card-body {
+    padding: 18px 20px;
+    flex: 1;
+}
+
+/* ── Avatar ── */
+.rounded-circle {
+    width: 60px !important;
+    height: 60px !important;
+    border: 2px solid #e0e7ff !important;
+}
+
+/* ── Username ── */
+.card h4,
+.text-primary {
+    color: #3730a3 !important;
+    font-size: 0.88rem !important;
+    font-weight: 600;
+}
+
+/* ── Post content ── */
+.text-secondary {
+    color: #4b5563 !important;
+    font-size: 0.87rem;
+    line-height: 1.65;
+}
+
+
+/* ── Page title ── */
+h1 {
+    font-size: 1.25rem !important;
+    font-weight: 700;
+    color: #312e81 !important;
+    letter-spacing: -0.3px;
+}
+
+
+.post-count {
+    text-align: center;
+    font-size: 0.78rem;
+    color: #818cf8;
+    margin-bottom: 20px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+/* ── Toast ── */
+.toast {
+    background: #eef2ff !important;
+    color: #3730a3 !important;
+    border: 1.5px solid #c7d2fe !important;
+    border-radius: 12px !important;
+    font-size: 0.84rem;
+    font-weight: 500;
+}
+
+.toast-body {
+    padding: 11px 16px;
+}
+
+/* ── Alert / empty state ── */
+.alert-info {
+    background: #fff;
+    border: 1.5px dashed #c7d2fe;
+    border-radius: 14px;
+    color: #a5b4fc;
+    font-size: 0.88rem;
+}
+
+/* ── Headings on show/edit pages ── */
+h2 {
+    color: #312e81 !important;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+/* ── Disabled input on edit page ── */
+.form-control:disabled {
+    background: #f5f5f5 !important;
+    color: #c7d2fe !important;
+    border-color: #e0e7ff !important;
+    cursor: not-allowed;
+}
+
+/* ── Toast slide-in animation ── */
+@keyframes slideUp {
+    from { transform: translateY(8px); opacity: 0; }
+    to   { transform: translateY(0);   opacity: 1; }
+}
+
+.toast.show {
+    animation: slideUp 0.25s ease;
+}
+

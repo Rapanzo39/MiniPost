@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>Edit Post</title>
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-primary shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/posts">
+            MiniPost
+        </a>
+    </div>
+</nav>
+
+<div class="container mt-5">
+
+    <div class="card shadow border-0">
+
+        <div class="card-body">
+
+            <h2 class="mb-4 text-center">
+                Edit Post
+            </h2>
+
+            <form action="/posts/<%= post.id %>?_method=PATCH"
+                  method="POST">
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        class="form-control"
+                        value="<%= post.username %>"
+                        disabled
+                    >
+
+                </div>
+
+                <div class="mb-3">
+
+                    <label class="form-label">
+                        Content
+                    </label>
+
+                    <textarea
+                        name="content"
+                        class="form-control"
+                        rows="5"
+                        required
+                    ><%= post.content %></textarea>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-success"
+                >
+                    Save Changes
+                </button>
+
+                <a
+                    href="/posts"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
